@@ -8,9 +8,9 @@ body {
 /* Hero Section */
 .hero {
     background-image: url('https://lh3.googleusercontent.com/p/AF1QipOhZ93ftaVqtXCdVGhi2eCsCHRQn4TqIn5EtUuC=s680-w680-h510');
-    background-size: cover;  /* Menjaga gambar tetap menutupi area penuh */
+    background-size: cover;  /* Gambar tetap menutupi area */
     background-position: center;
-    height: 100vh;
+    height: 100vh;  /* Hero section tinggi penuh pada layar besar */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,21 +19,48 @@ body {
     text-align: center;
 }
 
+/* Animasi untuk Hero Section */
+.hero h1,
+.hero p {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.hero h1 {
+    animation-delay: 0.5s;
+}
+
+.hero p {
+    animation-delay: 1s;
+}
+
 /* Responsivitas untuk layar kecil (smartphone) */
 @media screen and (max-width: 768px) {
 
+    /* Menyesuaikan animasi agar lebih cepat di perangkat mobile */
+    .hero h1,
+    .hero p {
+        animation-duration: 0.7s;  /* Mempercepat animasi */
+    }
+
+    footer {
+        animation-duration: 0.5s;
+    }
+
+    /* Menyesuaikan tinggi hero section untuk layar kecil */
     .hero {
-        background-size: cover;  /* Gambar tetap memenuhi layar, bisa dipotong */
-        background-position: top center;
+        background-position: top;
         height: 60vh;  /* Mengurangi tinggi hero section di smartphone */
     }
 
     .hero h1 {
-        font-size: 2rem;  /* Mengubah ukuran font judul agar lebih kecil */
+        font-size: 2rem;  /* Mengurangi ukuran font judul */
     }
 
-    .hero p {
-        font-size: 1rem;  /* Menyesuaikan ukuran font deskripsi */
+    footer {
+        font-size: 0.8rem;
+        padding: 10px;
     }
 }
 
@@ -41,16 +68,16 @@ body {
 @media screen and (max-width: 480px) {
 
     .hero {
-        background-size: contain; /* Gambar akan ditampilkan penuh tanpa terpotong */
-        background-position: center center;  /* Posisi gambar agar tetap di tengah */
+        background-position: top;
+        background-size: contain;  /* Mengubah gambar agar tidak terpotong */
         height: 50vh;  /* Mengurangi tinggi hero section lebih kecil */
     }
 
     .hero h1 {
-        font-size: 1.5rem;  /* Menyesuaikan ukuran font judul lebih kecil */
+        font-size: 1.5rem;  /* Ukuran font judul lebih kecil */
     }
 
-    .hero p {
-        font-size: 0.9rem;  /* Menyesuaikan ukuran font deskripsi lebih kecil */
+    footer {
+        font-size: 0.75rem;
     }
 }
